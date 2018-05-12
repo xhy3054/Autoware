@@ -1,3 +1,14 @@
+nvidia-smi : view the usage of gpu
+
+cat /usr/local/cuda/version.txt : view the version of cuda
+
+if you use a computation with cuda9.0,you should do little changes
+
+find the file '/computing/perception/localization/lib/fast_pcl/ndt_gpu/include/fast_pcl/ndt_gpu/common.h' 
+
+change it like this
+
+'
 #ifndef GPU_COMMON_H_
 #define GPU_COMMON_H_
 
@@ -20,4 +31,6 @@
 #if ( __CUDACC_VER_MAJOR__ >=9 )
 #undef  __CUDACC_VER__
 #define __CUDACC_VER__ 90000 
-#endif 
+#endif
+
+'
